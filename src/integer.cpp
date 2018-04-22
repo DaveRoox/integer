@@ -362,10 +362,8 @@ std::string integer::to_str() const noexcept {
 	std::stack<short> _stck;
 	digit_node *nn = this->n;
 
-	while(nn != nullptr) {
-		_stck.push(nn->value);
-		nn = nn->next;
-	};
+	while(nn != nullptr)
+		_stck.push(nn->value), nn = nn->next;
 
 	while(!_stck.empty())
 		ss << _stck.top(), _stck.pop();

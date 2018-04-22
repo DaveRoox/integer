@@ -41,7 +41,7 @@ class integer final {
 		integer operator-() const; // Done
 		integer operator*(const integer&) const;
 		integer operator/(const integer&) const;
-		integer operator&(const integer&) const;
+		integer operator%(const integer&) const;
 		integer operator^(const integer&) const; /* Elevation to power */
 		integer& operator++(); // Done
 		integer operator++(int); // Done
@@ -61,7 +61,7 @@ class integer final {
 		integer& operator-=(const integer&); // Done
 		integer& operator*=(const integer&);
 		integer& operator/=(const integer&);
-		integer& operator&=(const integer&);
+		integer& operator%=(const integer&);
 		integer& operator^=(const integer&); /* Elevation to power */
 
 		void print(std::ostream& = std::cout) const noexcept; // Done
