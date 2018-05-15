@@ -4,6 +4,7 @@
 #include <ctime>
 
 using namespace std;
+using namespace number;
 
 template<class T, typename K> struct Sub {
 	T operator()(T & i1, T & i2) {
@@ -17,6 +18,24 @@ template<class T, typename K> struct Sub {
 template<class T, class K> struct Add {
 	T operator()(T & i1, T & i2) {
 		return i1 + i2;
+	};
+	bool compare(integer & t, long long & k) {
+		return t.to_str() == to_string(k);
+	}
+};
+
+template<class T, class K> struct Mult {
+	T operator()(T & i1, T & i2) {
+		return i1 * i2;
+	};
+	bool compare(integer & t, long long & k) {
+		return t.to_str() == to_string(k);
+	}
+};
+
+template<class T, class K> struct Pow {
+	T operator()(T & i1, T & i2) {
+		return i1 ^ i2;
 	};
 	bool compare(integer & t, long long & k) {
 		return t.to_str() == to_string(k);
@@ -116,6 +135,14 @@ int main() {
 	srand(time(NULL));
 
 	const long long N_TESTS = 10e5;
+	integer i = "99999999999999999999999999999999999999";
+	integer i2 = "10000000";
+	int a = 5;
+	cout << i++ << endl;
+	cout << i-- << endl;
+	cout << (integer)"150" * (integer)"00000000" << endl;
+	cout << ((integer)"9879837938" ^ (integer)"1000") << endl;
+	test<Mult>(N_TESTS, "Inizio il test per la moltiplicazione");
 	test<Sub>(N_TESTS, "Inizio il test per la sottrazione");
 	test<Add>(N_TESTS, "Inizio il test per la addizione");
 	test2<LEQ>(N_TESTS, "Inizio il test per <=");
